@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProEngLab</title>
+<meta name="description" content="ProEngLab is the independent software studio of Omer Gurbuz. Apps: OmniModel AI, TempTwin, MechKit.">
+<style>
+  :root { --bg: #f6f7f9; --card: #ffffff; --text: #14181f; --muted: #5b6472; --line: #dfe3ea; --accent: #0b5cad; --ok: #1a7f4b; --wip: #8a5a00; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1216; --card: #171b21; --text: #e8ebf0; --muted: #9aa4b2; --line: #2a303a; --accent: #6db3ff; --ok: #5fd39a; --wip: #e3b55a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 16px 40px; }
+  h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.02em; }
+  h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 44px 0 14px; }
+  h3 { font-size: 1.2rem; margin: 0; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); }
+  .lead { font-size: 1.1rem; color: var(--muted); max-width: 60ch; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 14px; }
+  .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 8px; }
+  .tag { font-size: 0.8rem; font-weight: 600; }
+  .tag.ok { color: var(--ok); }
+  .tag.wip { color: var(--wip); }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; font-size: 0.95rem; }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ProEngLab</h1>
+  <p class="lead">ProEngLab is the independent software studio of Ömer Gürbüz, a mechanical engineer building practical apps for iPhone and iPad.</p>
+
+  <h2>Apps</h2>
+
+  <section class="card">
+    <div class="head"><h3>OmniModel AI</h3><span class="tag wip">In development</span></div>
+    <p>A workspace for running AI models on iOS. It runs local models on the device and connects to cloud models through their APIs, with support for image and voice models, MCP connections, and agents that can each be given their own skills.</p>
+  </section>
+
+  <section class="card">
+    <div class="head"><h3>TempTwin</h3><span class="tag ok">Available on the App Store</span></div>
+    <p>Compare the feels-like temperature between two cities and see the equivalent temperature at your destination, with clothing suggestions, forecasts, and a home screen widget. Free, with no ads.</p>
+    <p class="links">
+      <a href="https://apps.apple.com/app/id6757329944">App Store</a>
+      <a href="/TempTwinWeb/">About</a>
+      <a href="/TempTwinWeb/privacy.html">Privacy</a>
+      <a href="/TempTwinWeb/terms.html">Terms</a>
+      <a href="/TempTwinWeb/support.html">Support</a>
+    </p>
+  </section>
+
+  <section class="card">
+    <div class="head"><h3>MechKit</h3><span class="tag wip">In development</span></div>
+    <p>Engineering calculations for mechanical engineers, organized into projects so the work stays together. Works offline.</p>
+    <p class="links">
+      <a href="/mechkit-legal/privacy-policy.html">Privacy</a>
+      <a href="/mechkit-legal/terms.html">Terms</a>
+      <a href="/mechkit-legal/support.html">Support</a>
+    </p>
+  </section>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:omer@proenglab.com">omer@proenglab.com</a></p>
+
+  <footer>© 2026 ProEngLab. Developed by Ömer Gürbüz.</footer>
+</main>
+</body>
+</html>
