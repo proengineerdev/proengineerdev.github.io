@@ -1,71 +1,93 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ProEngLab</title>
-<meta name="description" content="ProEngLab is the independent software studio of Omer Gurbuz. Apps: OmniModel AI, TempTwin, MechKit.">
-<style>
-  :root { --bg: #f6f7f9; --card: #ffffff; --text: #14181f; --muted: #5b6472; --line: #dfe3ea; --accent: #0b5cad; --ok: #1a7f4b; --wip: #8a5a00; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #0f1216; --card: #171b21; --text: #e8ebf0; --muted: #9aa4b2; --line: #2a303a; --accent: #6db3ff; --ok: #5fd39a; --wip: #e3b55a; }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 56px 16px 40px; }
-  h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.02em; }
-  h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 44px 0 14px; }
-  h3 { font-size: 1.2rem; margin: 0; }
-  p { margin: 0 0 12px; }
-  a { color: var(--accent); }
-  .lead { font-size: 1.1rem; color: var(--muted); max-width: 60ch; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 14px; }
-  .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 8px; }
-  .tag { font-size: 0.8rem; font-weight: 600; }
-  .tag.ok { color: var(--ok); }
-  .tag.wip { color: var(--wip); }
-  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; font-size: 0.95rem; }
-  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ProEngLab is an independent engineering software studio developing practical tools for iPhone and iPad.">
+  <title>ProEngLab — Engineering software</title>
+  <style>
+    :root { --ink:#111622; --paper:#f1efe9; --paper-deep:#e7e2d8; --line:#c8c4bc; --muted:#5d625f; --signal:#cb5a32; --signal-dark:#903d24; --white:#faf9f6; --serif:Iowan Old Style,Palatino Linotype,Book Antiqua,Palatino,Georgia,serif; --sans:Inter,Avenir Next,Avenir,Helvetica Neue,Helvetica,Arial,sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 var(--sans); text-rendering:optimizeLegibility; }
+    a { color:inherit; text-decoration-thickness:1px; text-underline-offset:.18em; }
+    a:focus-visible { outline:3px solid var(--signal); outline-offset:4px; }
+    .shell { width:min(1180px,calc(100% - 48px)); margin:0 auto; }
+    .masthead { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:84px; border-bottom:1px solid var(--line); }
+    .wordmark { font-size:1.18rem; font-weight:760; letter-spacing:-.055em; text-decoration:none; }
+    .wordmark span { color:var(--signal); }
+    .nav { display:flex; gap:22px; font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .nav a { text-decoration:none; }
+    .nav a:hover { color:var(--signal-dark); }
+    .hero { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:48px; padding:clamp(64px,11vw,136px) 0 72px; align-items:end; }
+    .eyebrow,.section-kicker,.project-index,.status { margin:0; font-size:.69rem; font-weight:760; letter-spacing:.14em; text-transform:uppercase; }
+    .eyebrow { color:var(--signal-dark); margin-bottom:26px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:11ch; margin-bottom:24px; font:clamp(3.45rem,7vw,6.7rem)/.91 var(--serif); font-weight:500; letter-spacing:-.065em; }
+    .hero-copy { max-width:54ch; color:var(--muted); font-size:clamp(1rem,1.35vw,1.18rem); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px 22px; margin-top:32px; font-size:.85rem; font-weight:700; }
+    .hero-actions a { text-decoration:none; border-bottom:1px solid currentColor; }
+    .signal-panel { min-height:350px; padding:26px; position:relative; overflow:hidden; color:var(--white); background:var(--ink); display:flex; flex-direction:column; justify-content:space-between; }
+    .signal-panel::before { content:""; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px); background-size:38px 38px; mask-image:linear-gradient(to bottom,black,transparent 74%); pointer-events:none; }
+    .signal-panel > * { position:relative; }
+    .signal-panel .section-kicker { color:#e1ab92; }
+    .signal-number { font:6rem/.8 var(--serif); color:var(--signal); letter-spacing:-.09em; }
+    .signal-panel p:last-child { max-width:24ch; margin:0; font-size:.83rem; color:#ced2d6; }
+    .work { padding:32px 0 104px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-bottom:28px; }
+    .section-heading h2 { margin:0; font:2rem/1 var(--serif); font-weight:500; letter-spacing:-.04em; }
+    .section-heading p { margin:0; color:var(--muted); font-size:.84rem; }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border:1px solid var(--line); }
+    .project { min-height:290px; padding:clamp(24px,4vw,46px); border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; transition:background-color .2s ease,color .2s ease; }
+    .project:hover { background:var(--ink); color:var(--white); }
+    .project:hover .project-copy,.project:hover .project-meta { color:#c8ced3; }
+    .project--primary { grid-row:span 2; min-height:582px; background:var(--paper-deep); }
+    .project-index { color:var(--signal-dark); margin-bottom:auto; }
+    .project h3 { margin:54px 0 14px; font:clamp(2.25rem,4.4vw,4.2rem)/.95 var(--serif); font-weight:500; letter-spacing:-.06em; }
+    .project--primary h3 { max-width:7ch; }
+    .project-copy { margin-bottom:28px; max-width:44ch; color:var(--muted); }
+    .project-meta { margin-top:auto; display:flex; align-items:center; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:.8rem; }
+    .status { color:var(--signal-dark); }
+    .status--live { color:#28745d; }
+    .project-meta a { font-weight:700; }
+    .research { margin-bottom:84px; padding:clamp(28px,5vw,54px); background:var(--signal); color:#221510; display:grid; grid-template-columns:minmax(150px,.45fr) minmax(0,1fr); gap:42px; }
+    .research .section-kicker { color:#633020; }
+    .research h2 { max-width:16ch; margin:0; font:clamp(2rem,4.2vw,3.8rem)/.96 var(--serif); font-weight:500; letter-spacing:-.06em; }
+    .research p { align-self:end; max-width:50ch; margin:0; font-size:.96rem; }
+    .contact { padding:28px 0 56px; border-top:1px solid var(--line); }
+    .contact h2 { margin:16px 0 0; font:clamp(2.1rem,4vw,3.6rem)/1 var(--serif); font-weight:500; letter-spacing:-.06em; }
+    .contact h2 a { text-decoration:none; border-bottom:2px solid var(--signal); }
+    footer { padding:20px 0 28px; border-top:1px solid var(--line); color:var(--muted); font-size:.75rem; }
+    @media (max-width:760px) { .shell { width:min(100% - 32px,1180px); } .masthead { min-height:70px; } .nav { gap:14px; font-size:.65rem; } .hero,.research { grid-template-columns:1fr; } .hero { padding-top:72px; gap:38px; } .signal-panel { min-height:240px; } .project-grid { grid-template-columns:1fr; } .project,.project--primary { min-height:360px; grid-row:auto; border-right:0; } .project h3 { margin-top:46px; } .section-heading { align-items:flex-start; flex-direction:column; gap:8px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .project { transition:none; } }
+  </style>
 </head>
 <body>
-<main>
-  <h1>ProEngLab</h1>
-  <p class="lead">ProEngLab is the independent software studio of Ömer Gürbüz, a mechanical engineer building practical apps for iPhone and iPad.</p>
-
-  <h2>Apps</h2>
-
-  <section class="card">
-    <div class="head"><h3>OmniModel AI</h3><span class="tag wip">In development</span></div>
-    <p>A workspace for running AI models on iOS. It runs local models on the device and connects to cloud models through their APIs, with support for image and voice models, MCP connections, and agents that can each be given their own skills.</p>
-  </section>
-
-  <section class="card">
-    <div class="head"><h3>TempTwin</h3><span class="tag ok">Available on the App Store</span></div>
-    <p>Compare the feels-like temperature between two cities and see the equivalent temperature at your destination, with clothing suggestions, forecasts, and a home screen widget. Free, with no ads.</p>
-    <p class="links">
-      <a href="https://apps.apple.com/app/id6757329944">App Store</a>
-      <a href="/TempTwinWeb/">About</a>
-      <a href="/TempTwinWeb/privacy.html">Privacy</a>
-      <a href="/TempTwinWeb/terms.html">Terms</a>
-      <a href="/TempTwinWeb/support.html">Support</a>
-    </p>
-  </section>
-
-  <section class="card">
-    <div class="head"><h3>MechKit</h3><span class="tag wip">In development</span></div>
-    <p>Engineering calculations for mechanical engineers, organized into projects so the work stays together. Works offline.</p>
-    <p class="links">
-      <a href="/mechkit-legal/privacy-policy.html">Privacy</a>
-      <a href="/mechkit-legal/terms.html">Terms</a>
-      <a href="/mechkit-legal/support.html">Support</a>
-    </p>
-  </section>
-
-  <h2>Contact</h2>
-  <p><a href="mailto:omer@proenglab.com">omer@proenglab.com</a></p>
-
-  <footer>© 2026 ProEngLab. Developed by Ömer Gürbüz.</footer>
-</main>
+  <header class="shell masthead">
+    <a class="wordmark" href="#top" aria-label="ProEngLab home">ProEng<span>Lab</span></a>
+    <nav class="nav" aria-label="Primary navigation"><a href="#work">Work</a><a href="#research">Research</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main id="top">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Independent engineering software studio</p>
+        <h1 id="hero-title">Independent software for complex technical work.</h1>
+        <p class="hero-copy">ProEngLab develops focused, privacy-conscious tools for iPhone and iPad—from on-device AI workspaces to practical engineering utilities.</p>
+        <div class="hero-actions"><a href="#work">Explore the work</a><a href="mailto:hello@proenglab.com">Get in touch</a></div>
+      </div>
+      <aside class="signal-panel" aria-label="Studio focus"><p class="section-kicker">Studio focus</p><div class="signal-number" aria-hidden="true">01</div><p>Software where applied engineering, privacy, and useful intelligence meet.</p></aside>
+    </section>
+    <section class="shell work" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><h2 id="work-title">Selected work</h2><p>Current products and works in progress.</p></div>
+      <div class="project-grid">
+        <article class="project project--primary"><p class="project-index">01 / AI workspace</p><h3>OmniModel AI</h3><p class="project-copy">A workspace for running AI models on iOS. It supports on-device models and connections to cloud models through their APIs, including image, voice, MCP, and capability-scoped agent workflows.</p><div class="project-meta"><span class="status">In development</span><span>iPhone &amp; iPad</span></div></article>
+        <article class="project"><p class="project-index">02 / Weather utility</p><h3>TempTwin</h3><p class="project-copy">Compare feels-like temperature between places, understand equivalent conditions at a destination, and plan with forecasts, clothing suggestions, and a home-screen widget.</p><div class="project-meta"><span class="status status--live">Available on the App Store</span><a href="https://apps.apple.com/app/id6757329944">View app</a><a href="/TempTwinWeb/">About</a><a href="/TempTwinWeb/privacy.html">Privacy</a><a href="/TempTwinWeb/terms.html">Terms</a><a href="/TempTwinWeb/support.html">Support</a></div></article>
+        <article class="project"><p class="project-index">03 / Engineering utility</p><h3>MechKit</h3><p class="project-copy">An offline engineering-calculation workspace for mechanical engineers, structured around projects so technical work remains organized and accessible.</p><div class="project-meta"><span class="status">In development</span><a href="/mechkit-legal/privacy-policy.html">Privacy</a><a href="/mechkit-legal/terms.html">Terms</a><a href="/mechkit-legal/support.html">Support</a></div></article>
+      </div>
+    </section>
+    <section class="shell research" id="research" aria-labelledby="research-title"><p class="section-kicker">Engineering research</p><div><h2 id="research-title">Low-bypass-ratio fan design for turbofan engines.</h2><p>ProEngLab’s research work examines fan design for low-bypass-ratio turbofan engines, bringing the same systems perspective that informs its engineering software.</p></div></section>
+    <section class="shell contact" id="contact" aria-labelledby="contact-title"><p class="section-kicker">Contact</p><h2 id="contact-title"><a href="mailto:hello@proenglab.com">hello@proenglab.com</a></h2></section>
+  </main>
+  <footer class="shell">© 2026 ProEngLab · Independent engineering software</footer>
 </body>
 </html>
